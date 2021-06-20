@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"
+        integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="modal fade" id="FormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="FormLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form">
+                        <form id="question-form" name="question-form" class="row question-form needs-validation"
+                            novalidate>
+                            <div class="row">
+                                <div class="modal-head">
+                                    <h5>New Question</h5>
+                                </div>
+                            </div>
+                            <div class="form-questions row">
+                                <div class="m-2">
+                                    <label for="question" class="form-label">Question&nbsp;&#42;</label>
+                                    <textarea class="form-control" id="question" name="question" rows="3" value=""
+                                        required></textarea>
+                                    <div class="invalid-feedback">
+                                        Please Enter Question.!
+                                    </div>
+                                    <div class="isRequired mt-2">
+                                        <button name="onOrOff" type="button" class="onOrOff off">
+                                            <span>OFF</span>&nbsp;<i class="fas fa-circle"></i>
+                                        </button>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="isRequired" value="true"
+                                                name="isRequired">
+                                            <label class="form-check-label" for="isRequired">Required</label>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <label for="questionType" class="form-label">Answer Type</label>
+                                        <select name="questionType" class="form-select form-select-lg questionType"
+                                            aria-label=".form-select-lg" value="">
+                                            <option selected value="One Line">- One Line</option>
+                                            <option value="Multiple Lines">- Multiple Lines </option>
+                                            <option value="Radio">- Radio</option>
+                                            <option value="Checkbox">- Checkbox </option>
+                                        </select>
+                                    </div>
+                                    <div class="inputs mt-3">
+                                        <label for="answers">Answers&nbsp;&#42;</label>
+                                        <p class="helper-text">Invitee can select one of the following</p>
+                                        <div class="answers">
+                                            <div class="row mt-1 answer">
+                                                <div class="col-11">
+                                                    <input placeholder="Answer 1" name="option" type="text"
+                                                        class="mt-1 form-control option" required id="option1">
+                                                </div>
+                                                <div class="col-1">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1 answer">
+                                                <div class="col-11">
+                                                    <input placeholder="Answer 2" name="option2" type="text"
+                                                        class="mt-1 form-control option" required id="option2">
+                                                </div>
+                                                <div class="col-1 delete">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1 answer">
+                                                <div class="col-11">
+                                                    <input placeholder="Answer 3" name="option3" type="text"
+                                                        class="mt-1 form-control option" required id="option3">
+                                                </div>
+                                                <div class="col-1 delete">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1 answer">
+                                                <div class=" col-11">
+                                                    <input placeholder="Answer 4" name="option4" type="text"
+                                                        class="mt-1 form-control option" required id="option4">
+                                                </div>
+                                                <div class=" col-1 delete">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a type="button" class="add-another mt-3">
+                                            <i class="fas fa-plus"></i>&nbsp;Add Another
+                                        </a>
+                                        <div class="include mt-3">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="includeOtherOption"
+                                                    value="true" name="includeOtherOptions">
+                                                <label class="form-check-label" for="includeOtherOption">
+                                                    Include "Other" Option
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3 justify-content-center">
+                                        <button type="button" class="deleteQuestion">
+                                            <i class="far fa-trash-alt"></i>
+                                            &nbsp;&nbsp;Delete&nbsp;Question
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="btns mt-5">
+                        <button type="submit" class="btn btn-primary">Apply</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="card-container">
+            <form id="main-form" class="row main-form">
+                <div class="main-form-questions">
+
+                </div>
+                <a class="add" data-bs-toggle="modal" data-bs-target="#FormModal">
+                    <i class="fas fa-plus"></i>&nbsp;
+                    Add New Question
+                </a>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

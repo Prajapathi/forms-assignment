@@ -1,0 +1,103 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card-container {
+  width: 90%;
+  margin: auto;
+  padding: 1em;
+  max-width: 760px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.add {
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.inputs {
+  display: none;
+}
+
+.helper-text {
+  color: gray;
+}
+
+.row > .col-11 ~ .col-1 {
+  margin: auto;
+  transition: 0.2s ease;
+}
+
+.row > .col-11 ~ .col-1:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.add-another {
+  text-decoration: none;
+}
+
+.deleteQuestion {
+  color: red;
+  background: none;
+  border: none;
+  font-weight: 700;
+}
+
+.btns {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.include {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+.form-check label,
+.form-check input {
+  cursor: pointer;
+}
+
+.modal-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.isRequired {
+  display: flex;
+  justify-content: space-between;
+}
+
+.onOrOff {
+  font-size: 1rem;
+  background: none;
+  padding: 0.1em 0.4em;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.on {
+  color: green;
+  border-color: green;
+}
+
+.off {
+  color: red;
+  border-color: red;
+}
