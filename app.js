@@ -23,16 +23,16 @@ const AddLineInput = (data) => {
     const id = String(generateID(5))
     const mainFormQuestions = document.querySelector('.main-form-questions');
     const newInput = document.createElement('div');
-    newInput.setAttribute('class', "row mt-1 align-items-center")
+    newInput.setAttribute('class', "row mt-1 align-items-center input-field")
     newInput.innerHTML = `
         <div class="col col-4">
-            ${data.question} : 
+            ${data.question} <sup>${data.isRequired ? '*' : ""}</sup> :
         </div>
         <div class="col col-7">
             <input name=${data.question} type="input" class="form-control" id=${id} required=${data.isRequired} />
         </div>
         <div class="col col-1">
-            <i class="fas fa-user-edit edit ${id}"></i>
+            <i class="fas fa-user-edit edit ${id}" data-bs-toggle="modal" data-bs-target="#editModal"></i>
         </div>
     `
     mainFormQuestions.appendChild(newInput);
@@ -42,17 +42,17 @@ const AddTextArea = (data) => {
     const id = String(generateID(5))
     const mainFormQuestions = document.querySelector('.main-form-questions');
     const newInput = document.createElement('div');
-    newInput.setAttribute('class', 'row mt-1 align-items-center')
+    newInput.setAttribute('class', 'row mt-1 align-items-center input-field')
     newInput.innerHTML = `
         <div class="col col-11 justify-content-around">
-            <label for="question" class="form-label">${data.question} <sup>${data.isRequired ? '*' : null}</sup> :</label>
+            <label for="question" class="form-label">${data.question} <sup>${data.isRequired ? '*' : ""}</sup> :</label>
             <textarea class="form-control" id=${id} name=${data.question} rows="3" value="" required=${data.isRequired}></textarea>
             <div class="invalid-feedback">
                 Please Answer the question.
             </div>
         </div>
         <div class="col col-1 justify-content-center">
-            <i class="fas fa-user-edit edit ${id}"></i>
+            <i class="fas fa-user-edit edit ${id}" data-bs-toggle="modal" data-bs-target="#editModal"></i>
         </div>
     `
     mainFormQuestions.appendChild(newInput);
@@ -64,7 +64,7 @@ const AddRadioInput = (data) => {
     const id = String(generateID(5))
     const mainFormQuestions = document.querySelector('.main-form-questions');
     const newInput = document.createElement('div');
-    newInput.setAttribute('class', 'row mt-1 align-items-center')
+    newInput.setAttribute('class', 'row mt-1 align-items-center input-field')
     console.log(data.answers)
 
     const radioOptions = document.createElement('div');
@@ -96,7 +96,7 @@ const AddRadioInput = (data) => {
     newInput.appendChild(radioOptions)
     newInput.innerHTML += `
         <div class="col col-1 justify-content-start">
-            <i class="fas fa-user-edit edit ${id}"></i>
+            <i class="fas fa-user-edit edit ${id}" data-bs-toggle="modal" data-bs-target="#editModal"></i>
         </div>
     `
 
@@ -108,7 +108,7 @@ const AddCheckbox = (data) => {
     const id = String(generateID(5))
     const mainFormQuestions = document.querySelector('.main-form-questions');
     const newInput = document.createElement('div');
-    newInput.setAttribute('class', 'row mt-1 align-items-center')
+    newInput.setAttribute('class', 'row mt-1 align-items-center input-field')
     console.log(data.answers)
 
     const checkboxOptions = document.createElement('div');
@@ -141,7 +141,7 @@ const AddCheckbox = (data) => {
     newInput.appendChild(checkboxOptions)
     newInput.innerHTML += `
         <div class="col col-1 justify-content-start">
-            <i class="fas fa-user-edit edit ${id}"></i>
+            <i class="fas fa-user-edit edit ${id}" data-bs-toggle="modal" data-bs-target="#editModal" ></i>
         </div>
     `
 
@@ -194,6 +194,7 @@ QuestionForm.addEventListener('submit', (event) => {
     AddQuestion(data);
     document.querySelector('.question-form').reset();
     document.querySelector('.inputs').style.display = "none"
+    document.querySelector('.close').click()
 
 })
 
@@ -270,3 +271,6 @@ onOrOff.addEventListener('click', () => {
         span.textContent = "OFF"
     }
 })
+
+const sort_element = document.querySelector('.main-form-questions');
+const sortable = Sortable.create(sort_element)

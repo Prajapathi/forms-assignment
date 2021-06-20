@@ -127,29 +127,61 @@
                     </div>
                     <div class="btns mt-5">
                         <button type="submit" class="btn btn-primary">Apply</button>
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-outline-secondary close"
+                            data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </div>
                 </form>
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
 
+    <div class="modal" id="editModal">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="row edit-form needs-validation" novalidate>
+                        <div class="mt-2 row">
+                            <div>
+                                <label for="">
+                                    edit question
+                                </label>
+                                <input class="mt-1 form-control" />
+                            </div>
+                        </div>
+                    </form>
+                    <button type="button" class="btn btn-outline-secondary close"
+                        data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <div class="container">
         <div class="card-container">
-            <form id="main-form" class="row main-form">
-                <div class="main-form-questions">
-
+            <form id="main-form" class="row main-form needs-validation" novalidate>
+                <div class="main-form-questions mt-3 mb-3">
+                    <div class="row mt-1 align-items-center input-field">
+                        <div class="col col-4">
+                            First Name : *
+                        </div>
+                        <div class="col col-7">
+                            <input name=FirstQuestion type="input" class="form-control" id="FirstQuestion" required />
+                        </div>
+                        <div class="col col-1">
+                            <i class="fas fa-user-edit edit FirstQuestion" data-bs-toggle="modal"
+                                data-bs-target="#editModal"></i>
+                        </div>
+                    </div>
                 </div>
-                <a class="add" data-bs-toggle="modal" data-bs-target="#FormModal">
+                <a class="add mt-2" data-bs-toggle="modal" data-bs-target="#FormModal">
                     <i class="fas fa-plus"></i>&nbsp;
                     Add New Question
                 </a>
+                <div class="submit mt-3">
+                    <button class="submit-button" type="submit">Submit</button>
+                </div>
             </form>
         </div>
     </div>
